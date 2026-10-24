@@ -1,19 +1,139 @@
+
 {
-    "name": "Your Name",
-    "tagline": "Your one-line introduction",
-    "bio": "Write 2 or 3 sentences about yourself.",
-    "skills": [
-        "Git",
-        "HTML"
-    ],
-    "projects": [
-        {
-            "title": "My first project",
-            "desc": "What it does.",
-            "link": "https://github.com/yourname"
-        }
-    ],
-    "links": {
-        "github": "https://github.com/yourname"
+  "name": "Shivani S",
+  "tagline": "Computer Science Engineering Student | Full-Stack Developer | AI/ML Enthusiast | ",
+  "bio": "I'm Shivani S, a Computer Science and Engineering student at TKM College of Engineering, passionate about building impactful technology solutions. I enjoy exploring web development, artificial intelligence, machine learning, and data structures and algorithms while continuously improving my problem-solving skills. Beyond coding, I actively contribute to the tech community through leadership roles in student organizations, hackathons, and collaborative projects. I'm always eager to learn, experiment with new technologies, contribute to open source, and turn ideas into meaningful products.",
+  "education": {
+    "degree": "B.Tech in Computer Science and Engineering",
+    "college": "TKM College of Engineering",
+    "status": "Undergraduate Student"
+  },
+  "skills": [
+    "C",
+    "Java",
+    "Python",
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "React",
+    "Node.js",
+    "Tailwind CSS",
+    "Git",
+    "GitHub",
+    "SQL",
+    "MongoDB",
+    "Data Structures and Algorithms",
+    "Object-Oriented Programming",
+    "Machine Learning",
+    "Computer Vision",
+    "Artificial Intelligence",
+    "REST APIs",
+    "Responsive Web Design",
+    "Problem Solving",
+    "Team Collaboration",
+    "Leadership",
+    "Event Management"
+  ],
+  "interests": [
+    "Full-Stack Web Development",
+    "Artificial Intelligence",
+    "Machine Learning",
+    "AI Safety",
+    "Knowledge Graphs",
+    "Open Source Contributions",
+    "Hackathons",
+    "Competitive Programming",
+    "Software Engineering",
+    "Tech Community Building"
+  ],
+  "roles": [
+    {
+      "title": "Vice Chairperson",
+      "organization": "CSI TKMCE",
+      "period": "2026-2027"
+    },
+    {
+      "title": "Program Manager",
+      "organization": "Google Developer Groups (GDG)",
+      "period": "2025-2026"
+    },
+    {
+      "title": "Program Coordinator",
+      "organization": "CSI TKMCE",
+      "period": "2025-2026"
+    },
+    {
+      "title": "Documentation Team Member",
+      "organization": "Mathventures TKMCE",
+      "period":"2026-2027"
     }
+  ],
+  "experience": [
+    {
+      "title": "Project Intern",
+      "organization": "National Institute of Technology Tiruchirappalli",
+      "period": "May 2026 - July 2026",
+      "description": "Explored knowledge graphs and research approaches for detecting and preventing data leakage."
+    }
+  ],
+  "projects": [
+    {
+      "title": "TruthForge AI",
+      "desc": "An AI-focused web application developed as part of an international hackathon, exploring responsible and safety-conscious AI applications.",
+      "link": "https://github.com/yourname"
+    },
+    {
+      "title": "FitFriend",
+      "desc": "A web-based application designed to encourage physical activity and help users build healthier habits.",
+      "link": "https://github.com/yourname"
+    },
+    {
+      "title": "Smart Hostel Complaint Management System",
+      "desc": "A Java-based complaint management system with JDBC integration and AI-powered summarization to streamline hostel complaint handling.",
+      "link": "https://github.com/yourname"
+    },
+    {
+      "title": "PlateShare - Food Quantity Comparator",
+      "desc": "A project exploring food quantity comparison using a web interface, Streamlit, and computer vision techniques.",
+      "link": "https://github.com/yourname"
+    },
+    {
+      "title": "Placement Preparation Tracker",
+      "desc": "A web project designed to help students organize and track their placement preparation journey.",
+      "link": "https://github.com/yourname"
+    },
+    {
+      "title": "Personal Portfolio Website",
+      "desc": "A personal portfolio showcasing my technical skills, projects, achievements, and journey as a computer science student.",
+      "link": "https://shivanisreejith1.github.io/PORTFOLIO/"
+    },
+    {
+      "title": "CODE-QUEST",
+      "desc": "A coding-themed game website that combines interactive web development with a fun learning experience.",
+      "link": "https://shivanisreejith1.github.io/CODE-QUEST/"
+    }
+  ],
+  "achievements": [
+    "GHCI 2025 Attendee",
+    "GirlScript Summer of Code 2025 Contributor"
+  ],
+  "links": {
+    "github": "https://github.com/yourname",
+    "portfolio": "https://shivanisreejith1.github.io/PORTFOLIO/",
+    "codeQuest": "https://shivanisreejith1.github.io/CODE-QUEST/",
+    "linkedin": "https://www.linkedin.com/in/yourname"
+  },
+  "currentlyLearning": [
+    "Advanced Java",
+    "Data Structures and Algorithms",
+    "Full-Stack Web Development",
+    "Artificial Intelligence and Machine Learning"
+  ],
+  "careerGoals": [
+    "Secure a software engineering internship",
+    "Build real-world projects that solve meaningful problems",
+    "Contribute to open-source projects",
+    "Grow as a full-stack developer",
+    "Prepare for software engineering and product-based company placements"
+  ]
 }
