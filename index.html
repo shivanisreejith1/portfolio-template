@@ -4,30 +4,72 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Portfolio</title>
+  <title>Shivani S | Portfolio</title>
+  <meta name="description" content="Portfolio of Shivani S, a Computer Science Engineering student at TKM College of Engineering working in full-stack development and AI/ML.">
+  <meta name="theme-color" content="#c2410c">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+  <a class="skip" href="#content">Skip to content</a>
+
   <header class="hero">
     <h1 id="name"></h1>
     <p id="tagline"></p>
-    <nav id="links"></nav>
+    <nav id="links" aria-label="Profile links"></nav>
   </header>
-  <main>
+
+  <main id="content">
     <section>
       <h2>About</h2>
       <p id="bio"></p>
+      <p id="education" class="muted"></p>
     </section>
+
+    <section>
+      <h2>Experience</h2>
+      <div id="experience" class="grid"></div>
+    </section>
+
+    <section>
+      <h2>Leadership</h2>
+      <div id="roles" class="grid"></div>
+    </section>
+
     <section>
       <h2>Skills</h2>
       <ul id="skills" class="chips"></ul>
     </section>
+
     <section>
       <h2>Projects</h2>
       <div id="projects" class="grid"></div>
     </section>
+
+    <section>
+      <h2>Achievements</h2>
+      <ul id="achievements" class="list"></ul>
+    </section>
+
+    <section>
+      <h2>Interests</h2>
+      <ul id="interests" class="chips"></ul>
+    </section>
+
+    <section>
+      <h2>Currently Learning</h2>
+      <ul id="learning" class="chips"></ul>
+    </section>
+
+    <section>
+      <h2>Goals</h2>
+      <ul id="goals" class="list"></ul>
+    </section>
   </main>
+
   <footer id="footer"></footer>
   <script src="script.js"></script>
 </body>

@@ -3,7 +3,9 @@
     --fg: #1a1a2e;
     --muted: #5b6475;
     --card: #f3f4f8;
-    --accent: #e8590c;
+    --accent: #c2410c;
+    --accent-soft: rgba(194, 65, 12, 0.12);
+    --border: rgba(26, 26, 46, 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -12,6 +14,9 @@
         --fg: #f2f2f7;
         --muted: #a0a6b8;
         --card: #1b1d2b;
+        --accent: #ff7a33;
+        --accent-soft: rgba(255, 122, 51, 0.15);
+        --border: rgba(255, 255, 255, 0.08);
     }
 }
 
@@ -19,31 +24,74 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
-    font-family: system-ui, sans-serif;
+    font-family: "Inter", system-ui, sans-serif;
     background: var(--bg);
     color: var(--fg);
     line-height: 1.6;
 }
 
+.skip {
+    position: absolute;
+    left: -999px;
+    top: 8px;
+    background: var(--accent);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    z-index: 10;
+}
+
+.skip:focus {
+    left: 8px;
+}
 .hero {
     text-align: center;
-    padding: 64px 20px 32px;
+    padding: 72px 20px 32px;
+    background: radial-gradient(ellipse at top, var(--accent-soft), transparent 70%);
 }
 
 .hero h1 {
     font-size: clamp(2rem, 6vw, 3.4rem);
     margin: 0;
     color: var(--accent);
+    letter-spacing: -0.03em;
+    animation: fadeUp 0.7s ease both;
+}
+
+.hero p {
+    color: var(--muted);
+    animation: fadeUp 0.7s 0.15s ease both;
+}
+
+/* ---------- Nav ---------- */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 8px;
+    animation: fadeUp 0.7s 0.3s ease both;
 }
 
 nav a {
-    margin: 0 8px;
+    margin: 0;
+    padding: 4px 10px;
     color: var(--accent);
     text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.2s ease;
 }
 
+nav a:hover {
+    background: var(--accent-soft);
+}
+
+/* ---------- Layout ---------- */
 main {
     max-width: 860px;
     margin: auto;
@@ -53,8 +101,11 @@ main {
 h2 {
     border-left: 4px solid var(--accent);
     padding-left: 10px;
+    letter-spacing: -0.02em;
+    margin-top: 2.5rem;
 }
 
+/* ---------- Chips ---------- */
 .chips {
     list-style: none;
     padding: 0;
@@ -65,10 +116,18 @@ h2 {
 
 .chips li {
     background: var(--card);
+    border: 1px solid var(--border);
     padding: 4px 14px;
     border-radius: 99px;
+    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
+.chips li:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+}
+
+/* ---------- Cards ---------- */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -77,16 +136,79 @@ h2 {
 
 .card {
     background: var(--card);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
     padding: 16px;
     border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: fadeUp 0.6s ease both;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
 }
 
 .card a {
     color: var(--accent);
+    font-weight: 600;
 }
 
+.card-title {
+    margin: 0 0 4px;
+    font-size: 1.05rem;
+}
+
+.meta,
+.muted {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin: 0 0 8px;
+}
+
+/* ---------- Plain lists ---------- */
+.list {
+    padding-left: 1.2rem;
+}
+
+.list li {
+    margin-bottom: 6px;
+}
+
+/* ---------- Focus styles ---------- */
+a:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* ---------- Footer ---------- */
 footer {
     text-align: center;
     color: var(--muted);
     padding: 40px 20px;
+    border-top: 1px solid var(--border);
+    margin-top: 48px;
+}
+
+/* ---------- Animation ---------- */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: none; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 600px) {
+    .hero { padding: 48px 16px 24px; }
+    main { padding: 0 16px; }
+    .card { padding: 14px; }
 }
