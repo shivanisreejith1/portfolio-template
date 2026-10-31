@@ -31,6 +31,7 @@
     const rich = (s) => s.split("**").map((t, i) => (i % 2 ? h("strong", null, t) : t));
     const img = (src, alt, cls) => h("img", { src, alt, class: cls, onerror: "this.remove()" });
     const eyebrow = (t) => h("p", { class: "eyebrow" }, t);
+    const list = (v) => Array.isArray(v) ? v : String(v || "").split(",").map((x) => x.trim()).filter(Boolean);
     const pad = (n) => String(n + 1).padStart(2, "0");
     // "30+" -> 30 + plum "+"; "$800" stays whole
     const stat = (v) => { const m = /^(.*\d)(\D+)$/.exec(v); return m ? [m[1], h("b", null, m[2])] : v; };
@@ -46,7 +47,7 @@
       const l = p.links || {};
       const m = $("main");
 
-      m.append(h("div", { class: "hero" }, p.heroImage && img(p.heroImage, "Portfolio hero")));
+      if (p.heroImage) m.append(h("div", { class: "hero" }, img(p.heroImage, "Portfolio hero")));
 
       const intro = p.introImage ? img(p.introImage, p.name, "intro-img") : null;
       m.append(sec("intro", "About", "light about",
@@ -68,9 +69,9 @@
 
       if (has(p.projects)) m.append(sec("projects", "Projects", "light mark",
         h("div", { class: "row" }, h("div", null, eyebrow("Selected Work"), h("h2", null, "Projects")), p.projectsLink && ext(p.projectsLink, "All on GitHub ↗", "btn ghost")),
-        h("div", { class: "panel projects" }, p.projects.map((pr, i) => h("a", { class: "card", href: url(pr.link), target: "_blank", rel: "noopener" },
+        h("div", { class: "panel projects" }, p.projects.map((pr, i) => h(url(pr.link) ? "a" : "div", { class: "card", href: url(pr.link), target: "_blank", rel: "noopener" },
           h("span", { class: "num" }, pad(i)), h("h3", null, pr.title), h("p", null, pr.desc),
-          h("ul", { class: "tags" }, (pr.tech || []).map((t) => h("li", null, t))))))));
+          h("ul", { class: "tags" }, list(pr.tech).map((t) => h("li", null, t))))))));
 
       if (has(p.skills)) m.append(sec("skills", "Personal Skills", "light mark",
         eyebrow("What I Bring"), h("h2", null, "Personal Skills"),
@@ -94,7 +95,9 @@
           h("h3", null, a.title), h("p", null, a.by), h("time", null, a.date))))));
 
       if (has(p.certifications)) {
-        const track = () => h("ul", { class: "track" }, p.certifications.map((c) => h("li", null, c.name)));
+        const reps = Math.max(1, Math.ceil(10 / p.certifications.length));
+        const names = Array.from({ length: reps }, () => p.certifications.map((c) => c.name)).flat();
+        const track = () => h("ul", { class: "track" }, names.map((n) => h("li", null, n)));
         m.append(sec("certs", "Certifications", "light mark",
           eyebrow("Verified Learning"), h("h2", null, "Certifications"),
           h("div", { class: "marquee", "aria-hidden": "true" }, track(), track()),
