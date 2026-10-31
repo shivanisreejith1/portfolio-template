@@ -60,7 +60,7 @@ h3 { font:700 1.5rem/1.15 var(--display); text-transform:uppercase; margin:0; le
 .stats { display:flex; flex-wrap:wrap; gap:1.75rem 2.75rem; margin:0 0 2.5rem; }
 .stats strong { display:block; font:800 3rem/1 var(--display); } .stats b { color:var(--plum); }
 .stats span { font:400 .72rem/1.4 var(--mono); letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
-.intro-img { position:absolute; right:0; bottom:0; height:100%; max-height:34rem; width:auto; z-index:0; pointer-events:none; }
+.intro-img { display:block; width:100%; max-width:26rem; aspect-ratio:4/5; object-fit:cover; object-position:center top; margin-top:2.5rem; }
 
 /* experience */
 .timeline { position:relative; }
@@ -133,7 +133,7 @@ dialog img { display:block; width:100%; height:auto; }
 
 @media (max-width:860px) {
   .about .wrap,.talks .wrap,.projects,.skills,.certs,.edu { grid-template-columns:1fr; }
-  .about .wrap { gap:2.5rem; } .intro-img { display:none; }
+  .about .wrap { gap:2.5rem; } .intro-img { max-width:100%; }
   .timeline li { grid-template-columns:1fr; gap:.4rem; } .tag { justify-self:start; min-width:0; }
   .panel { padding:1.5rem; }
   section { padding:3.5rem 0; }

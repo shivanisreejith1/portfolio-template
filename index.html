@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
+  <title>Shivani | Portfolio</title>
   <meta name="description" content="Personal portfolio">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,8 +59,8 @@
         h("div", null,
           eyebrow("At a Glance"),
           h("ul", { class: "stats" }, (p.stats || []).map((s) => h("li", null, h("strong", null, stat(s.value)), h("span", null, s.label)))),
-          h("div", { class: "actions" }, l.github && ext(l.github, "GitHub ↗", "btn ghost"), l.linkedin && ext(l.linkedin, "LinkedIn ↗", "btn"))),
-        intro));
+          h("div", { class: "actions" }, l.github && ext(l.github, "GitHub ↗", "btn ghost"), l.linkedin && ext(l.linkedin, "LinkedIn ↗", "btn")),
+          intro)));
 
       if (has(p.experience)) m.append(sec("experience", "Experience", "plum",
         eyebrow("Roles & Internships"), h("h2", null, "Experience"),
