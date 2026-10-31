@@ -1,5 +1,5 @@
 :root {
-  --paper:#f8f4f2; --grey:#e9e5e3; --plum:#6b0044; --ink:#1b1b1b; --white:#fff; --muted:#6c6663;
+  --paper:#f8f4f2; --grey:#e9e5e3; --plum:#7a004b; --ink:#1b1b1b; --white:#fff; --muted:#6c6663;
   --display:"Barlow Condensed","Arial Narrow",Impact,sans-serif;
   --body:"Barlow","Segoe UI",system-ui,sans-serif;
   --mono:"Space Mono",ui-monospace,Menlo,Consolas,monospace;
@@ -24,12 +24,10 @@ a { color:inherit; } p { margin:0; } ul,ol { list-style:none; margin:0; padding:
 #nav a:hover { color:#e9b3d2; }
 
 /* shared */
-.hero { background:#e6dcc8; text-align:center; padding-top:3.5rem; }
-.hero img { display:block; margin:0 auto; max-width:100%; height:min(36rem,75vh); object-fit:contain; object-position:bottom;
-  -webkit-mask-image:linear-gradient(to right,transparent,#000 22%,#000 78%,transparent),linear-gradient(to bottom,transparent,#000 14%);
-  -webkit-mask-composite:source-in;
-  mask-image:linear-gradient(to right,transparent,#000 22%,#000 78%,transparent),linear-gradient(to bottom,transparent,#000 14%);
-  mask-composite:intersect; }
+.hero { position:relative; height:100vh; min-height:34rem; overflow:hidden; background:#fffdf9; }
+.hero::before { content:"PORTFOLIO"; position:absolute; left:50%; top:52%; transform:translate(-50%,-50%); z-index:1;
+  font:800 27vw/1 var(--display); color:var(--plum); white-space:nowrap; letter-spacing:-.01em; pointer-events:none; }
+.hero img { position:absolute; z-index:2; left:50%; bottom:-3vh; transform:translateX(-50%); height:98vh; width:auto; max-width:100%; object-fit:contain; object-position:bottom center; }
 section { position:relative; overflow:hidden; padding:5rem 0; }
 .wrap { position:relative; z-index:1; max-width:76rem; margin:0 auto; padding:0 clamp(1.25rem,5vw,4rem); }
 .light { background:var(--paper); } .plum { background:var(--plum); color:#fff; } .dark { background:var(--ink); color:#fff; }
