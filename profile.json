@@ -1,139 +1,86 @@
-
 {
   "name": "Shivani S",
-  "tagline": "Computer Science Engineering Student | Full-Stack Developer | AI/ML Enthusiast | ",
-  "bio": "I'm Shivani S, a Computer Science and Engineering student at TKM College of Engineering, passionate about building impactful technology solutions. I enjoy exploring web development, artificial intelligence, machine learning, and data structures and algorithms while continuously improving my problem-solving skills. Beyond coding, I actively contribute to the tech community through leadership roles in student organizations, hackathons, and collaborative projects. I'm always eager to learn, experiment with new technologies, contribute to open source, and turn ideas into meaningful products.",
-  "education": {
-    "degree": "B.Tech in Computer Science and Engineering",
-    "college": "TKM College of Engineering",
-    "status": "Undergraduate Student"
-  },
-  "skills": [
-    "C",
-    "Java",
-    "Python",
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "React",
-    "Node.js",
-    "Tailwind CSS",
-    "Git",
-    "GitHub",
-    "SQL",
-    "MongoDB",
-    "Data Structures and Algorithms",
-    "Object-Oriented Programming",
-    "Machine Learning",
-    "Computer Vision",
-    "Artificial Intelligence",
-    "REST APIs",
-    "Responsive Web Design",
-    "Problem Solving",
-    "Team Collaboration",
-    "Leadership",
-    "Event Management"
+  "heroImage": "images/hero.png",
+  "introImage": "images/intro.png",
+  "galleryImage": "",
+  "bio": [
+    "I'm Shivani, a Computer Science and Engineering undergraduate at TKM College of Engineering, Kerala, interested in building meaningful software, exploring AI and machine learning, and contributing to developer communities.",
+    "My journey includes software development projects, NLP research, open-source contributions, hackathons, and student leadership. I enjoy working with people, organising initiatives, documenting ideas, and turning concepts into practical solutions.",
+    "I'm currently exploring opportunities in Software Engineering, Web Development, and AI/ML while continuing to grow as a developer and researcher."
   ],
-  "interests": [
-    "Full-Stack Web Development",
-    "Artificial Intelligence",
-    "Machine Learning",
-    "AI Safety",
-    "Knowledge Graphs",
-    "Open Source Contributions",
-    "Hackathons",
-    "Competitive Programming",
-    "Software Engineering",
-    "Tech Community Building"
-  ],
-  "roles": [
-    {
-      "title": "Vice Chairperson",
-      "organization": "CSI TKMCE",
-      "period": "2026-2027"
-    },
-    {
-      "title": "Program Manager",
-      "organization": "Google Developer Groups (GDG)",
-      "period": "2025-2026"
-    },
-    {
-      "title": "Program Coordinator",
-      "organization": "CSI TKMCE",
-      "period": "2025-2026"
-    },
-    {
-      "title": "Documentation Team Member",
-      "organization": "Mathventures TKMCE",
-      "period":"2026-2027"
-    }
-  ],
-  "experience": [
-    {
-      "title": "Project Intern",
-      "organization": "National Institute of Technology Tiruchirappalli",
-      "period": "May 2026 - July 2026",
-      "description": "Explored knowledge graphs and research approaches for detecting and preventing data leakage."
-    }
-  ],
-  "projects": [
-    {
-      "title": "TruthForge AI",
-      "desc": "An AI-focused web application developed as part of an international hackathon, exploring responsible and safety-conscious AI applications.",
-      "link": "https://github.com/yourname"
-    },
-    {
-      "title": "FitFriend",
-      "desc": "A web-based application designed to encourage physical activity and help users build healthier habits.",
-      "link": "https://github.com/yourname"
-    },
-    {
-      "title": "Smart Hostel Complaint Management System",
-      "desc": "A Java-based complaint management system with JDBC integration and AI-powered summarization to streamline hostel complaint handling.",
-      "link": "https://github.com/yourname"
-    },
-    {
-      "title": "PlateShare - Food Quantity Comparator",
-      "desc": "A project exploring food quantity comparison using a web interface, Streamlit, and computer vision techniques.",
-      "link": "https://github.com/yourname"
-    },
-    {
-      "title": "Placement Preparation Tracker",
-      "desc": "A web project designed to help students organize and track their placement preparation journey.",
-      "link": "https://github.com/yourname"
-    },
-    {
-      "title": "Personal Portfolio Website",
-      "desc": "A personal portfolio showcasing my technical skills, projects, achievements, and journey as a computer science student.",
-      "link": "https://shivanisreejith1.github.io/PORTFOLIO/"
-    },
-    {
-      "title": "CODE-QUEST",
-      "desc": "A coding-themed game website that combines interactive web development with a fun learning experience.",
-      "link": "https://shivanisreejith1.github.io/CODE-QUEST/"
-    }
-  ],
-  "achievements": [
-    "GHCI 2025 Attendee",
-    "GirlScript Summer of Code 2025 Contributor"
+  "tags": ["Software Development", "Web Development", "Artificial Intelligence", "Machine Learning", "NLP Research", "Open Source", "Community Leadership"],
+  "stats": [
+    { "value": "5+", "label": "Projects & Applications" },
+    { "value": "5+", "label": "Leadership & Community Roles" },
+    { "value": "1", "label": "Research Paper Submission" }
   ],
   "links": {
-    "github": "https://github.com/yourname",
-    "portfolio": "https://shivanisreejith1.github.io/PORTFOLIO/",
-    "codeQuest": "https://shivanisreejith1.github.io/CODE-QUEST/",
-    "linkedin": "https://www.linkedin.com/in/yourname"
+    "github": "https://github.com/shivanisreejith1",
+    "linkedin": "https://www.linkedin.com/in/shivanisreej/"
   },
-  "currentlyLearning": [
-    "Advanced Java",
-    "Data Structures and Algorithms",
-    "Full-Stack Web Development",
-    "Artificial Intelligence and Machine Learning"
+  "email": "shivanisreejith8@gmail.com",
+  "experience": [
+    { "date": "May 2026 – July 2026", "role": "NLP Project Intern", "org": "National Institute of Technology, Tiruchirappalli", "type": "Research · NLP" },
+    { "date": "2026 – Present", "role": "Vice Chairperson", "org": "Computer Society of India (CSI), TKMCE", "type": "Leadership · Technology" },
+    { "date": "2026 – Present", "role": "Human Resources (HR)", "org": "Produit Academy", "type": "People · Operations" },
+    { "date": "2026 – Present", "role": "Documentation Team Member", "org": "MathVentures, TKMCE", "type": "Documentation · Community" },
+    { "date": "2025 – 2026", "role": "Program Manager", "org": "Google Developer Groups (GDG), TKMCE", "type": "Community · Events" },
+    { "date": "2025 – 2026", "role": "Program Coordinator", "org": "Computer Society of India (CSI), TKMCE", "type": "Events · Leadership" },
+    { "date": "2025 – 2026", "role": "Year Representative", "org": "MathVentures, TKMCE", "type": "Student Leadership" },
+    { "date": "2025 – 2026", "role": "Academic Intern", "org": "Produit Academy", "type": "EdTech · Academic Support" }
   ],
-  "careerGoals": [
-    "Secure a software engineering internship",
-    "Build real-world projects that solve meaningful problems",
-    "Contribute to open-source projects",
-    "Grow as a full-stack developer",
-    "Prepare for software engineering and product-based company placements"
-  ]
+  "projectsLink": "https://github.com/shivanisreejith1",
+  "projects": [
+    { "title": "TruthForge AI", "desc": "An AI-powered platform developed for an international hackathon, focusing on detecting data inconsistencies and media-related vulnerabilities.", "tech": "React, Vite, Tailwind CSS, Python, AI/ML", "link": "" },
+    { "title": "Smart Hostel Complaint Management System", "desc": "A hostel complaint management application with role-based access and an AI-powered complaint summarisation feature.", "tech": "Java, JDBC, NLP", "link": "" },
+    { "title": "Relief-Sync", "desc": "A disaster relief resource management platform designed to connect affected people, volunteers, NGOs, and authorities while coordinating relief resources.", "tech": "ShaktiDB, Database Systems, Web Development", "link": "https://github.com/shivanisreejith1/Relief-Sync" },
+    { "title": "CODE-QUEST", "desc": "An interactive web-based game that teaches JavaScript fundamentals through storytelling and coding challenges.", "tech": "HTML, CSS, JavaScript", "link": "https://shivanisreejith1.github.io/CODE-QUEST/" },
+    { "title": "Ektara", "desc": "A birth chart application that uses astronomical calculations to determine planetary positions based on birth details.", "tech": "Web Development, Astronomy", "link": "https://github.com/shivanisreejith1/Ektara" },
+    { "title": "Placement Prep Tracker", "desc": "A web-based tracker designed to organise placement preparation and monitor progress towards career goals.", "tech": "HTML, CSS", "link": "https://github.com/shivanisreejith1/Placement-prep-Tracker" }
+  ],
+  "skills": {
+    "Programming Languages": [
+      { "name": "Python", "level": 70 }, { "name": "Java", "level": 60 }, { "name": "JavaScript", "level": 70 },
+      { "name": "C", "level": 55 }, { "name": "TypeScript", "level": 40 }
+    ],
+    "Frontend Development": [
+      { "name": "HTML & CSS", "level": 80 }, { "name": "React.js", "level": 65 }, { "name": "Next.js", "level": 45 },
+      { "name": "Tailwind CSS", "level": 65 }, { "name": "Vite", "level": 60 }
+    ],
+    "Backend & Databases": [
+      { "name": "Node.js", "level": 50 }, { "name": "Express.js", "level": 45 }, { "name": "REST APIs", "level": 55 },
+      { "name": "JDBC", "level": 45 }, { "name": "SQL", "level": 50 }
+    ],
+    "AI & Machine Learning": [
+      { "name": "NLP", "level": 55 }, { "name": "TensorFlow", "level": 40 }, { "name": "OpenCV", "level": 45 },
+      { "name": "Machine Learning", "level": 50 }
+    ],
+    "Tools": [
+      { "name": "Git & GitHub", "level": 75 }, { "name": "Figma", "level": 45 }, { "name": "Streamlit", "level": 50 },
+      { "name": "Canva", "level": 70 }
+    ]
+  },
+  "talksIntro": "Research, technical learning, and community experiences.",
+  "talks": [],
+  "achievements": [
+    { "icon": "🔬", "title": "Research Paper Submitted – RAIT 2027", "by": "IIT (ISM) Dhanbad", "date": "2026" },
+    { "icon": "🌸", "title": "Grace Hopper Celebration India (GHCI) 2025 Attendee", "by": "AnitaB.org", "date": "2025" },
+    { "icon": "🚀", "title": "GirlScript Summer of Code Contributor", "by": "GSSoC", "date": "2025" }
+   
+  ],
+  "certifications": [
+    { "name": "The Joy of Computing with Python", "issuer": "NPTEL · IIT Madras", "date": "2025" },
+    { "name": "Getting Started with Generative AI", "issuer": "IBM SkillsBuild", "date": "2025" }
+  ],
+  "education": {
+    "date": "2024 – 2028",
+    "school": "TKM College of Engineering, Kerala",
+    "degree": "B.Tech – Computer Science and Engineering",
+    "note": "Undergraduate · Expected Graduation 2028"
+  },
+  "educationCards": [
+    { "label": "Higher Secondary", "title": "Science with Computer Science", "text": "Gokulam Public School, Calicut · CBSE" },
+    { "label": "Secondary School", "title": "CBSE", "text": "Amrutha Public School, Calicut" }
+  ],
+  "contact": "I'm open to opportunities in Software Engineering, Web Development, AI/ML, research collaborations, and technology communities. Feel free to reach out!"
 }
