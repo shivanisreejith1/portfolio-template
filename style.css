@@ -24,8 +24,12 @@ a { color:inherit; } p { margin:0; } ul,ol { list-style:none; margin:0; padding:
 #nav a:hover { color:#e9b3d2; }
 
 /* shared */
-.hero { background:var(--white); text-align:center; padding-top:3.5rem; }
-.hero img { display:block; margin:0 auto; max-width:100%; height:min(34rem,70vh); object-fit:contain; object-position:bottom; }
+.hero { background:#e6dcc8; text-align:center; padding-top:3.5rem; }
+.hero img { display:block; margin:0 auto; max-width:100%; height:min(36rem,75vh); object-fit:contain; object-position:bottom;
+  -webkit-mask-image:linear-gradient(to right,transparent,#000 22%,#000 78%,transparent),linear-gradient(to bottom,transparent,#000 14%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to right,transparent,#000 22%,#000 78%,transparent),linear-gradient(to bottom,transparent,#000 14%);
+  mask-composite:intersect; }
 section { position:relative; overflow:hidden; padding:5rem 0; }
 .wrap { position:relative; z-index:1; max-width:76rem; margin:0 auto; padding:0 clamp(1.25rem,5vw,4rem); }
 .light { background:var(--paper); } .plum { background:var(--plum); color:#fff; } .dark { background:var(--ink); color:#fff; }
