@@ -1,77 +1,147 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Shivani S | Portfolio</title>
-  <meta name="description" content="Portfolio of Shivani S, a Computer Science Engineering student at TKM College of Engineering working in full-stack development and AI/ML.">
-  <meta name="theme-color" content="#c2410c">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <meta name="description" content="Personal portfolio">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <a class="skip" href="#content">Skip to content</a>
+  <a class="skip" href="#main">Skip to content</a>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+  <nav id="nav" aria-label="Sections" hidden></nav>
+  <main id="main"></main>
+  <dialog id="gallery"><button id="close" aria-label="Close gallery">×</button><img id="galleryImg" alt="Event gallery"></dialog>
 
-  <header class="hero">
-    <h1 id="name"></h1>
-    <p id="tagline"></p>
-    <nav id="links" aria-label="Profile links"></nav>
-  </header>
+  <script>
+    function h(tag, attrs, ...kids) {
+      const el = document.createElement(tag);
+      for (const [k, v] of Object.entries(attrs || {})) { if (v != null && v !== false) el.setAttribute(k, v); }
+      kids.flat().forEach((k) => { if (k != null && k !== false) el.append(k.nodeType ? k : document.createTextNode(k)); });
+      return el;
+    }
+    const $ = (id) => document.getElementById(id);
+    const url = (u) => (/^https?:\/\//i.test(u || "") ? u : null);
+    const ext = (href, text, cls) => h("a", { href: url(href), target: "_blank", rel: "noopener", class: cls }, text);
+    const has = (a) => Array.isArray(a) ? a.length > 0 : a && Object.keys(a).length > 0;
+    const rich = (s) => s.split("**").map((t, i) => (i % 2 ? h("strong", null, t) : t));
+    const img = (src, alt, cls) => h("img", { src, alt, class: cls, onerror: "this.remove()" });
+    const eyebrow = (t) => h("p", { class: "eyebrow" }, t);
+    const pad = (n) => String(n + 1).padStart(2, "0");
+    // "30+" -> 30 + plum "+"; "$800" stays whole
+    const stat = (v) => { const m = /^(.*\d)(\D+)$/.exec(v); return m ? [m[1], h("b", null, m[2])] : v; };
 
-  <main id="content">
-    <section>
-      <h2>About</h2>
-      <p id="bio"></p>
-      <p id="education" class="muted"></p>
-    </section>
+    const navItems = [];
+    function sec(id, nav, cls, ...kids) {
+      navItems.push([id, nav]);
+      return h("section", { id, class: cls }, h("div", { class: "wrap" }, ...kids));
+    }
 
-    <section>
-      <h2>Experience</h2>
-      <div id="experience" class="grid"></div>
-    </section>
+    function build(p) {
+      document.title = p.name + " — Portfolio";
+      const l = p.links || {};
+      const m = $("main");
 
-    <section>
-      <h2>Leadership</h2>
-      <div id="roles" class="grid"></div>
-    </section>
+      m.append(h("div", { class: "hero" }, p.heroImage && img(p.heroImage, "Portfolio hero")));
 
-    <section>
-      <h2>Skills</h2>
-      <ul id="skills" class="chips"></ul>
-    </section>
+      const intro = p.introImage ? img(p.introImage, p.name, "intro-img") : null;
+      m.append(sec("intro", "About", "light about",
+        h("div", null,
+          eyebrow("Who I Am"),
+          h("h2", null, "Hello,", h("br"), "I'm ", h("em", null, p.name)),
+          (p.bio || []).map((t) => h("p", { class: "lead" }, rich(t))),
+          h("ul", { class: "tags" }, (p.tags || []).map((t) => h("li", null, t)))),
+        h("div", null,
+          eyebrow("At a Glance"),
+          h("ul", { class: "stats" }, (p.stats || []).map((s) => h("li", null, h("strong", null, stat(s.value)), h("span", null, s.label)))),
+          h("div", { class: "actions" }, l.github && ext(l.github, "GitHub ↗", "btn ghost"), l.linkedin && ext(l.linkedin, "LinkedIn ↗", "btn"))),
+        intro));
 
-    <section>
-      <h2>Projects</h2>
-      <div id="projects" class="grid"></div>
-    </section>
+      if (has(p.experience)) m.append(sec("experience", "Experience", "plum",
+        eyebrow("Roles & Internships"), h("h2", null, "Experience"),
+        h("ol", { class: "timeline" }, p.experience.map((e) => h("li", null,
+          h("time", null, e.date), h("div", null, h("h3", null, e.role), h("p", null, e.org)), h("span", { class: "tag" }, e.type))))));
 
-    <section>
-      <h2>Achievements</h2>
-      <ul id="achievements" class="list"></ul>
-    </section>
+      if (has(p.projects)) m.append(sec("projects", "Projects", "light mark",
+        h("div", { class: "row" }, h("div", null, eyebrow("Selected Work"), h("h2", null, "Projects")), p.projectsLink && ext(p.projectsLink, "All on GitHub ↗", "btn ghost")),
+        h("div", { class: "panel projects" }, p.projects.map((pr, i) => h("a", { class: "card", href: url(pr.link), target: "_blank", rel: "noopener" },
+          h("span", { class: "num" }, pad(i)), h("h3", null, pr.title), h("p", null, pr.desc),
+          h("ul", { class: "tags" }, (pr.tech || []).map((t) => h("li", null, t))))))));
 
-    <section>
-      <h2>Interests</h2>
-      <ul id="interests" class="chips"></ul>
-    </section>
+      if (has(p.skills)) m.append(sec("skills", "Personal Skills", "light mark",
+        eyebrow("What I Bring"), h("h2", null, "Personal Skills"),
+        h("div", { class: "skills" }, Object.entries(p.skills).map(([g, list]) =>
+          h("div", null, h("h3", null, g), h("ul", null, list.map((s) => {
+            const name = typeof s === "string" ? s : s.name, lvl = typeof s === "string" ? 75 : (s.level ?? 75);
+            const bar = h("i"); bar.style.setProperty("--w", Math.max(0, Math.min(100, lvl)) + "%");
+            return h("li", null, h("span", null, name), bar);
+          })))))));
 
-    <section>
-      <h2>Currently Learning</h2>
-      <ul id="learning" class="chips"></ul>
-    </section>
+      if (has(p.talks)) m.append(sec("talks", "Talk Sessions", "dark talks",
+        h("div", null, eyebrow("Voice & Presence"), h("h2", null, "Talk", h("br"), "Sessions"),
+          h("p", { class: "lead" }, rich(p.talksIntro || "")),
+          p.galleryImage && h("button", { class: "btn ghost", id: "open" }, "Event Gallery ↗")),
+        h("ul", { class: "talklist" }, p.talks.map((t) => h("li", null, h("span", null, t.type), h("strong", null, t.title))))));
 
-    <section>
-      <h2>Goals</h2>
-      <ul id="goals" class="list"></ul>
-    </section>
-  </main>
+      if (has(p.achievements)) m.append(sec("awards", "Recognition & Achievements", "plum",
+        eyebrow("Awards"), h("h2", null, "Recognitions", h("br"), "& Achievements"),
+        h("ul", { class: "awards" }, p.achievements.map((a) => h("li", null,
+          h("span", { class: "icon", "aria-hidden": "true" }, a.icon || "★"),
+          h("h3", null, a.title), h("p", null, a.by), h("time", null, a.date))))));
 
-  <footer id="footer"></footer>
-  <script src="script.js"></script>
+      if (has(p.certifications)) {
+        const track = () => h("ul", { class: "track" }, p.certifications.map((c) => h("li", null, c.name)));
+        m.append(sec("certs", "Certifications", "light mark",
+          eyebrow("Verified Learning"), h("h2", null, "Certifications"),
+          h("div", { class: "marquee", "aria-hidden": "true" }, track(), track()),
+          h("ul", { class: "certs" }, p.certifications.map((c) => h("li", null,
+            h("span", null, c.issuer), h("h3", null, c.name), h("time", null, c.date))))));
+      }
+
+      if (p.education) {
+        const e = p.education;
+        m.append(sec("education", "Education", "light",
+          eyebrow("Academic Journey"), h("h2", null, "Education"),
+          h("div", { class: "edu" },
+            h("div", { class: "card main" }, h("time", null, e.date), h("h3", null, e.school), h("p", null, e.degree), h("p", { class: "muted" }, e.note)),
+            (p.educationCards || []).map((c) => h("div", { class: "card" }, h("span", { class: "label" }, c.label), h("h3", null, c.title), h("p", null, c.text))))));
+      }
+
+      m.append(sec("contact", "Get In Touch", "dark mark contact",
+        eyebrow("Let's Connect"), h("h2", null, "Get in", h("br"), "Touch"),
+        h("p", { class: "lead" }, p.contact || ""),
+        h("div", { class: "links" },
+          p.email && h("a", { href: "mailto:" + p.email }, "Mail ↗"),
+          l.linkedin && ext(l.linkedin, "LinkedIn ↗"), l.github && ext(l.github, "GitHub ↗"))));
+
+      m.append(h("footer", null, h("span", null, "© " + new Date().getFullYear() + " " + p.name), h("span", null, "All rights reserved")));
+
+      // menu, in the reference site's order
+      const nav = $("nav"), burger = $("burger");
+      ["intro", "awards", "education", "experience", "projects", "talks", "skills", "certs", "contact"].forEach((id) => {
+        const n = navItems.find((x) => x[0] === id);
+        if (n) nav.append(h("a", { href: "#" + id }, n[1]));
+      });
+      const setMenu = (open) => { nav.hidden = !open; burger.setAttribute("aria-expanded", open); burger.classList.toggle("open", open); };
+      burger.onclick = () => setMenu(nav.hidden);
+      nav.onclick = (ev) => { if (ev.target.tagName === "A") setMenu(false); };
+      document.addEventListener("keydown", (ev) => { if (ev.key === "Escape") setMenu(false); });
+
+      const dlg = $("gallery"), open = $("open");
+      if (open) {
+        $("galleryImg").src = p.galleryImage;
+        open.onclick = () => dlg.showModal();
+        $("close").onclick = () => dlg.close();
+        dlg.onclick = (ev) => { if (ev.target === dlg) dlg.close(); };
+      }
+    }
+
+    fetch("profile.json").then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); }).then(build)
+      .catch((e) => { $("main").textContent = "Could not load profile.json: " + e.message; });
+  </script>
 </body>
-
 </html>
